@@ -45,9 +45,9 @@ try:
 
 
 
-"""----------------------------"""
-"""ignore everything below here"""
-"""----------------------------"""
+    """----------------------------"""
+    """ignore everything below here"""
+    """----------------------------"""
 except Exception as exc:
     # if changes to IG layout, upload the file to help us locate the change
     if isinstance(exc, NoSuchElementException):
