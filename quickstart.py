@@ -5,17 +5,17 @@ from tempfile import gettempdir
 from selenium.common.exceptions import NoSuchElementException
 
 from instapy import InstaPy
+"""----------------------------"""
+"""ignore everything above here"""
+"""----------------------------"""
+
+
+
 
 insta_username = ''
 insta_password = ''
 
-# set headless_browser=True if you want to run InstaPy on a server
-
-# set these in instapy/settings.py if you're locating the
-# library in the /usr/lib/pythonX.X/ directory:
-#   Settings.database_location = '/path/to/instapy.db'
-#   Settings.chromedriver_location = '/path/to/chromedriver'
-
+# set headless_browser=True if you want to run InstaPy without a browser opening
 session = InstaPy(username=insta_username,
                   password=insta_password,
                   headless_browser=False,
@@ -24,10 +24,10 @@ session = InstaPy(username=insta_username,
 try:
     session.login()
 
-    # settings
+
+    """SETTINGS"""
+    # all the set_.... belong below
     session.set_relationship_bounds(enabled=True,
-				 potency_ratio=-1.21,
-				  delimit_by_numbers=True,
 				   max_followers=4590,
 				    max_following=5555,
 				     min_followers=45,
@@ -37,9 +37,17 @@ try:
     session.set_dont_include(['friend1', 'friend2', 'friend3'])
     session.set_dont_like(['pizza', 'girl'])
 
-    # actions
+
+    """ACTIONS"""
+    # like_by_..., comment_by_..., follow_by_..., interact_user_..., follow_user_... all belong below
     session.like_by_tags(['natgeo'], amount=1)
 
+
+
+
+"""----------------------------"""
+"""ignore everything below here"""
+"""----------------------------"""
 except Exception as exc:
     # if changes to IG layout, upload the file to help us locate the change
     if isinstance(exc, NoSuchElementException):
